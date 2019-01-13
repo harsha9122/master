@@ -1,0 +1,38 @@
+//Import the dataset to the DB - mongoDB using client tool
+
+//Single field indexing : -
+//Create Index For “User_ID” :
+
+db.getCollection('BlackFriday').createIndex({"User_ID" : 1})
+
+//After Creating index : 
+
+db.getCollection('BlackFriday').find({"User_ID" : 1003261})
+
+//Compound index :- 
+
+//Creating Index for “Product_ID” and “Purchase” : 
+
+db.getCollection('BlackFriday').createIndex({"Product_ID" : 1,"Purchase" : 1})
+
+//After  Creating  Compound Index :-
+
+db.getCollection('BlackFriday').find({"Product_ID" : "P00361942", "Purchase" : 3815})
+
+//Prefix Of Compound Index :- 
+
+db.getCollection('BlackFriday').createIndex({"Product_ID" : 1,"Purchase" : 1})
+
+//Here  Product_ID is prefix  of  above mentioned Compound Index 
+
+db.getCollection('BlackFriday').find({"Product_ID" : "P00361942” })
+
+//Note : - 
+db.getCollection('BlackFriday').createIndex({"field" : type})
+
+// type  can be 1 or -1 depending on the requirement  , and type can also be “text” for string fields 
+
+
+
+
+
