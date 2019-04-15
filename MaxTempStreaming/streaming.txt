@@ -1,0 +1,16 @@
+Note: All the commands need to be run from the path where the files exist.
+
+$ g++ maxtemp_map.cpp -o maxtemp_map
+$ g++ maxtemp_reduce.cpp -o maxtemp_reduce
+$ cat 190* | ./maxtemp_map | ./maxtemp_reduce
+1901    317
+1902    244
+
+$ hdfs version
+Hadoop 3.1.1
+
+$ yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-<hadoop-version>.jar -files maxtemp_map,maxtemp_reduce -mapper maxtemp_map -reducer maxtemp_reduce -input <path-to-input> -output <path-to-output>
+
+$ hdfs dfs -cat <directory-name-in-hdfs>/maxtemp/p*
+1901    317
+1902    244
