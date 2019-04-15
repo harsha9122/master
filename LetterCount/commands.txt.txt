@@ -1,0 +1,38 @@
+1. Create a directory to place all the .java files
+
+
+2. Run all the commands from that path
+
+
+
+3. To compile:
+
+$ javac *.java -classpath $(yarn classpath)
+
+
+
+4. To wrap up the .class files in a jar:
+
+$ jar cf <jar-filename> *.class
+
+
+
+5. Prepare an input directory in HDFS
+
+
+
+6. Run the example:
+
+$ yarn jar <jar-filename>  <input-path>  <output-dir>
+
+
+
+7. Display output in screen:
+
+$ hdfs dfs -cat <output-dir>/*
+
+
+
+Note: make sure that the output directory <output-dir>
+
+doesn't exist in HDFS, before you run the job.
